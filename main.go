@@ -17,7 +17,7 @@ func main() {
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	log.Println("Hello Kubernetes")
+	log.Println("Hello World!")
 	msg := map[string]string{
 		"message": "Hello World",
 	}
