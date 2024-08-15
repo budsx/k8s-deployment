@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -15,5 +17,9 @@ func main() {
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, World!")
+	log.Println("Hello Kubernetes")
+	msg := map[string]string{
+		"message": "Hello World",
+	}
+	json.NewEncoder(w).Encode(msg)
 }

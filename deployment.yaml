@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: hello-service
-        image: registry.digitalocean.com/do-container/hello-service:v1
+        image: registry.digitalocean.com/do-container/hello-service:latest
         ports:
         - containerPort: 8080
