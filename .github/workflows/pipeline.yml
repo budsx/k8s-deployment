@@ -27,9 +27,14 @@ jobs:
     - name: Push the Docker image
       run: docker push registry.digitalocean.com/do-container/hello-service:${{ github.sha }}
 
+    - name: Set up Kubernetes config
+      run: |
+        echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig.yaml
+        chmod 600 kubeconfig.yaml
+
     - name: Deploy to Kubernetes
       env:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        KUBECONFIG: ./kubeconfig.yaml
       run: |
         kubectl set image deployment/hello-service hello-service=registry.digitalocean.com/do-container/hello-service:${{ github.sha }}
         kubectl rollout status deployment/hello-service
