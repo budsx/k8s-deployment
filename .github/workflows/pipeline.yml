@@ -31,6 +31,8 @@ jobs:
 
     - name: Build the application
       run: |
+        go mod tidy
+        go mod vendor
         go build -o hello-service .
 
     - name: Log in to DigitalOcean Container Registry
