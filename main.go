@@ -18,6 +18,7 @@ func main() {
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("Hello Develop!")
+	log.Println("Hello Baru")
 	msg := map[string]string{
 		"message": "Hello Develop",
 	}
