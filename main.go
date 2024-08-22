@@ -17,9 +17,9 @@ func main() {
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	log.Println("Hello Hello!")
+	log.Println("Hello Develop!")
 	msg := map[string]string{
-		"message": "Hello Hello",
+		"message": "Hello Develop",
 	}
 	json.NewEncoder(w).Encode(msg)
 }
